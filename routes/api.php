@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EventsController;
+use App\Http\Controllers\MenuController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,3 +21,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::get('getEventsWithWorkshops', [EventsController::class, 'getEventsWithWorkshops']);
+Route::get('getFutureEventsWithWorkshops', [EventsController::class, 'getFutureEventsWithWorkshops']);
+Route::get('getMenuItems', [MenuController::class, 'getMenuItems']);
+

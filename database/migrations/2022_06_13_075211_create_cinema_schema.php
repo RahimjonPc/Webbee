@@ -36,7 +36,34 @@ class CreateCinemaSchema extends Migration
      */
     public function up()
     {
-        throw new \Exception('implement in coding task 4, you can ignore this exception if you are just running the initial migrations.');
+        // throw new \Exception('implement in coding task 4, you can ignore this exception if you are just running the initial migrations.');
+        Schema::create('cinemas', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->dateTime('date');
+            $table->integer('status');
+            $table->integer('showroom_id');
+            $table->integer('price');
+            
+            $table->integer('user_id');
+            $table->timestamps();
+        });
+
+        Schema::create('showroom', function($table) {
+            $table->increments('id');
+            
+            $table->timestamps();
+        });
+
+        Schema::create('seats', function($table) {
+            $table->increments('id');
+            $table->integer('movie_id');
+            $table->integer('vip_seat');
+            $table->integer('standard_seat');
+            $table->timestamps();
+        });
+
+        //I didn't have time to finish(
     }
 
     /**
